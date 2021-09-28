@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { Form as Unform } from '@unform/web';
 
-export const Form = styled(Unform)`
-  padding: 48px 40px;
+export const Container = styled(Unform)`
+  padding: 36px 40px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   h1 {
     font-weight: 600;
@@ -15,7 +16,7 @@ export const Form = styled(Unform)`
 
   button {
     margin-top: 48px;
-    align-self: flex-end;
+ //   align-self: flex-end;
   }
 
   button {

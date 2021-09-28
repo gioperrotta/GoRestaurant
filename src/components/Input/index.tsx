@@ -9,8 +9,25 @@ import { useField } from '@unform/core';
 
 import { Container } from './styles';
 
-const Input = ({ name, icon: Icon, ...rest }) => {
-  const inputRef = useRef(null);
+interface IconBaseProps extends React.SVGAttributes<SVGElement> {
+  children?: React.ReactNode;
+  size?: string | number;
+  color?: string;
+  title?: string;
+}
+
+type IconType = (props: IconBaseProps) => JSX.Element;
+
+interface InputProps {
+  name: string;
+  label?: string;
+  icon?: IconType;
+};
+
+type InputPropsUpdated = JSX.IntrinsicElements['input'] & InputProps;
+
+const Input = ({ name, icon: Icon, ...rest } :InputPropsUpdated) => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
